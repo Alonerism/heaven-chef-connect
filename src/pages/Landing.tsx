@@ -23,12 +23,12 @@ const Landing = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="secondary" className="text-lg px-8">
-              <Link to="/auth?role=customer">
+              <Link to="/jobs">
                 Post a Job <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="text-lg px-8 bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20">
-              <Link to="/auth?role=chef">
+              <Link to="/chefs">
                 Find a Chef <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -132,12 +132,12 @@ const Landing = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="default" className="text-lg px-8">
-              <Link to="/auth?role=customer">
+              <Link to="/jobs">
                 Post Your First Job
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="text-lg px-8">
-              <Link to="/auth?role=chef">
+              <Link to="/chefs">
                 Join as a Chef
               </Link>
             </Button>
