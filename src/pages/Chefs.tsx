@@ -19,27 +19,8 @@ const Chefs = () => {
   const [userRole, setUserRole] = useState<string>("");
 
   useEffect(() => {
-    checkAuth();
     fetchListings();
   }, []);
-
-  const checkAuth = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      navigate("/auth?role=customer");
-      return;
-    }
-
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("id", session.user.id)
-      .single();
-
-    if (profile) {
-      setUserRole(profile.role);
-    }
-  };
 
   const fetchListings = async () => {
     try {

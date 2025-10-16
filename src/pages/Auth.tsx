@@ -19,23 +19,6 @@ const Auth = () => {
   const [fullName, setFullName] = useState("");
   const roleParam = searchParams.get("role") || "customer";
 
-  useEffect(() => {
-    // Check if user is already logged in
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        navigate("/jobs");
-      }
-    });
-
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === "SIGNED_IN" && session) {
-        navigate("/jobs");
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, [navigate]);
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -18,27 +18,8 @@ const Jobs = () => {
   const [userRole, setUserRole] = useState<string>("");
 
   useEffect(() => {
-    checkAuth();
     fetchJobs();
   }, []);
-
-  const checkAuth = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      navigate("/auth");
-      return;
-    }
-
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("id", session.user.id)
-      .single();
-
-    if (profile) {
-      setUserRole(profile.role);
-    }
-  };
 
   const fetchJobs = async () => {
     try {
